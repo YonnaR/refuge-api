@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 import handleErrorMiddleware from '../../middleware/handle-error-middleware';
-import Reservation from '../../models/RestauReservation';
+import Reservation from '../../models/RestauModel/RestauReservation';
 
 const add: RequestHandler = async (req, res) => {
   let utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');

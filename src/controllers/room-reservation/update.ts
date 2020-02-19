@@ -1,7 +1,7 @@
-import RoomReservation from './../../models/RoomReservation';
+import RoomReservation from './../../models/RoomModel/RoomReservation';
 import { RequestHandler } from 'express';
 import handleErrorMiddleware from '../../middleware/handle-error-middleware';
-import Reservation from '../../models/RoomReservation';
+import Reservation from '../../models/RoomModel/RoomReservation';
 
 const update: RequestHandler = async (req , res) =>{
     const id = req.params.id;

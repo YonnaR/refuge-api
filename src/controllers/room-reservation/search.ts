@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 import handleErrorMiddleware from '../../middleware/handle-error-middleware';
-import Book from '../../models/RoomReservation';
+import Book from '../../models/RoomModel/RoomReservation';
 
 /**
  * Builds a mongoose query object to search books according to book name and author name.

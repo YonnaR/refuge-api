@@ -1,4 +1,4 @@
-import { IObservableValue } from './ObservableValue';
+import { IObservableValue } from '../ObservableValue';
 import {
     Document, Model, Schema, model
 } from 'mongoose';

@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 import handleErrorMiddleware from '../../middleware/handle-error-middleware';
-import RoomReservation from '../../models/RoomReservation';
+import RoomReservation from '../../models/RoomModel/RoomReservation';
 
 const remove :RequestHandler = async (req, res) =>{
     const id = req.params.id;

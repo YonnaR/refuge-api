@@ -1,7 +1,7 @@
 import {
     Document, Model, Schema, model
 } from 'mongoose';
-import { IObservableValue } from './ObservableValue';
+import { IObservableValue } from '../ObservableValue';
 
 export interface IRestauReservation extends Document,IObservableValue {
     firstName: string;

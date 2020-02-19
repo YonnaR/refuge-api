@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 import handleErrorMiddleware from '../../middleware/handle-error-middleware';
-import Reservation from '../../models/RoomReservation';
+import Reservation from '../../models/RoomModel/RoomReservation';
 
 const all: RequestHandler = async (req, res) => {
   let limit :number = parseInt(req.query.limit) || 0;

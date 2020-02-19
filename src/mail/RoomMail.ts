@@ -1,4 +1,4 @@
-import { IRoomReservation } from './../models/RoomReservation';
+import { IRoomReservation } from './../models/RoomModel/RoomReservation';
 import Transporter from './transporter'
 import { isError } from 'util';
 export default class RoomMail{

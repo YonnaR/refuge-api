@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 import handleErrorMiddleware from '../../middleware/handle-error-middleware';
-import Reservation, { IRoomReservation } from '../../models/RoomReservation';
+import Reservation, { IRoomReservation } from '../../models/RoomModel/RoomReservation';
 import RoomMail from '../../mail/RoomMail';
 
 const add: RequestHandler = async (req, res) => {
