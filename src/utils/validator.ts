@@ -1,0 +1,9 @@
+
+
+export const isMailValid = ( val :string ) :boolean => {
+    const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/gim;
+    if (val.toLowerCase().match(re) === null) {
+        return true;
+    }
+    return false;
+}
