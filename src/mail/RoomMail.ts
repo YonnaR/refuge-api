@@ -1,18 +1,22 @@
 import { IRoomReservation } from './../models/RoomModel/RoomReservation';
 import Transporter from './transporter'
 import { isError } from 'util';
+
 export default class RoomMail{
     private reserv :IRoomReservation;
-
-
     constructor(reserv :IRoomReservation){
         this.reserv = reserv;
     }
-
+    /**
+     * 
+     */
     private buildAdminSubject() :string{
         const {created} = this.reserv;
         return`Nouvelle réservation de gîte le ${created}`
     }
+    /**
+     * 
+     */
     private buildAdminMail() :string{
         const { firstName, lastName, startDate, endDate, adults, childrens, tel, mail, created} = this.reserv
         return `
@@ -21,6 +25,9 @@ export default class RoomMail{
             Le client reste joignable par téléphone au : ${tel} ou par mail au : ${mail}
         `
     }
+    /**
+     * 
+     */
     private sendAdminMail() :Error|null{
         let transporter = Transporter()
         if (isError(transporter)){
@@ -36,11 +43,16 @@ export default class RoomMail{
             return null
         })
     }
-
+    /**
+     * 
+     */
     private buildClientSubject() :string{
         const {created} = this.reserv;
         return`Votre réservation chez Le Refuge du ${created} est en cours de validation`
     }
+    /**
+     * 
+     */
     private buildClientMail() :string{
         const {firstName, lastName, startDate, endDate} = this.reserv
         return `
@@ -50,27 +62,28 @@ export default class RoomMail{
             Nous restons joignable par téléphone au : (+590) 590-97-0502.
         `
     }
-    private sendClientMail() :Error|null{
-        let transporter = Transporter()
-        if (isError(transporter)){
-            return transporter;
-        }
-        transporter.sendMail({
+    /**
+     * 
+     */
+    private sendClientMail(){
+        let transporter = Transporter();
+        return transporter.sendMail({
             from:'refugehulman@gmail.com',
             to:this.reserv.mail,
             subject:this.buildClientSubject(),
             text:this.buildClientMail()
-        },(error, info)=>{
-            if (error) return error;
-            return null
+        },(err :Error, i:any)=>{
+            console.log({
+                error :err,
+                info: i
+            })
         })
     }
-
+    /**
+     * @send function build and send mail to admin and to client
+     */
     public send(){
-        return {
-            admin : this.sendAdminMail()?.message,
-            client: this.sendClientMail()?.message
-        }
+        this.sendAdminMail();
+        this.sendClientMail()
     }
-
 }

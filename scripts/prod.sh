@@ -2,7 +2,7 @@
 set -e
 
 cleanup() {
-    docker-compose -f  docker-compose.dev.yml down
+    docker-compose -f  docker-compose.yml down
     trap '' EXIT INT TERM
     exit $err
 }
@@ -20,6 +20,6 @@ if [ -z "$(docker network ls -qf name=^entropic$)" ]; then
   docker network create entropic >/dev/null
 fi
 
-COMPOSE_HTTP_TIMEOUT=120 docker-compose -f  docker-compose.dev.yml up -d --force-recreate
+COMPOSE_HTTP_TIMEOUT=120 docker-compose -f  docker-compose.yml up -d --force-recreate
 
- nodemon
+npm run start

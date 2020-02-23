@@ -19,10 +19,10 @@ const add: RequestHandler = async (req, res) => {
     created:utc, 
     updated:utc 
   });
-  await reserv.save((err , item)=>{
+  await reserv.save((err :Error , item :IRoomReservation)=>{
     if (err) res.status(400).send({
       info :"error",
-      message: err
+      message: err.message
     }).end();
     else {
       console.log(new RoomMail(reserv).send())

@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 
 services:
   api-server:
@@ -12,7 +12,17 @@ services:
     networks:
       - app-network
     ports:
-      - '3000:3000'
+      - '5000:5000'
+  mongo:
+    image: mongo
+    container_name: mongo-prod
+    restart: always
+    networks:
+      - app-network
+    volumes:
+      - ./data/dev/mongo:/data/db
+    ports:
+      - "27017:27017"
 
 networks:
   app-network:
