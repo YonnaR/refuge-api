@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'; 
-import Homepage from './pages/HomePage';
+
+const Homepage = lazy(()=>import('./pages/HomePage'));
 
 const AppRouter :React.FC = () =>{
     return <Router>
-        <div>
+        <Suspense fallback={<div>Loading...</div>} >
             <Switch>
-                <Route path='/' render={Homepage} />
+                <Route path='/' component={Homepage} />
             </Switch>
-        </div>
+        </Suspense>
     </Router>
 }
 
