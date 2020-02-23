@@ -1,16 +1,19 @@
-import React, { Suspense, lazy } from 'react'
+import React, { Suspense } from 'react'
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'; 
+import routes from './data/routes';
+import Navbar from './components/Navbar/Navbar';
+import LoadingFallback from './components/LoadingFallback/LoadingFallback'
 
-const Homepage = lazy(()=>import('./pages/HomePage'));
 
 const AppRouter :React.FC = () =>{
     return <Router>
-        <Suspense fallback={<div>Loading...</div>} >
+        <Suspense fallback={<LoadingFallback/>} >
+            <Navbar/>
             <Switch>
-                <Route path='/' component={Homepage} />
+                {routes.map(( item, index)=><Route key={index} path={item.path} component={item.component}/>)}
             </Switch>
         </Suspense>
     </Router>
-}
+};
 
 export default AppRouter;

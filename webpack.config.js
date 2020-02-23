@@ -11,7 +11,7 @@ module.exports = {
 		futureEmitAssets: true,
 		path: path.resolve(__dirname, 'client'),
     filename: 'js/[name].[hash].js',
-		chunkFilename: 'js/[name].[hash].chunk.js',
+		chunkFilename: 'js/chunk.[name].[hash].js',
     globalObject: 'this',
     publicPath: '/'
   },
