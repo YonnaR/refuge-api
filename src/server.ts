@@ -7,9 +7,7 @@ const result = dotenv.config();
 if (result.error) {
   dotenv.config({ path: '.env.default' });
 }
-
-const mongoConnection = new MongoConnection(process.env.MONGO_URL);
-
+const mongoConnection = new MongoConnection(process.env.NODE_ENV === 'development' ? '@mongodb://localhost:27017/restau' : process.env.MONGO_URL);
 if (process.env.MONGO_URL == null) {
   logger.log({
     level: 'error',

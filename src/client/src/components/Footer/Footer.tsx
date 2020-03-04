@@ -8,7 +8,6 @@ import Col from 'react-bootstrap/Col';
 
 const Footer = () => {
     return <StyledFooter>
-        <Container>
             <Row>
                 <Col md={5}>
                     <div className="text-center footer-block">
@@ -53,7 +52,6 @@ const Footer = () => {
                     </div>
                 </Col>
             </Row>
-        </Container>
     </StyledFooter>;
 }
 
