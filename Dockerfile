@@ -4,7 +4,7 @@ FROM node:10
 COPY package*.json ./
 
 # Install deps
-RUN npm i
+RUN npm ci
 
 # Copy source
 COPY . .
@@ -13,6 +13,6 @@ COPY . .
 RUN npm run build
 
 # Expose port 3000
-EXPOSE 5000
+EXPOSE 3000
 
 CMD npm run start

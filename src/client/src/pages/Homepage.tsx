@@ -1,15 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
-import Image from '../assets/image.jpg';
-
-const StyledTitle = styled.h1`
-    color:red;
-`
+//import styled from 'styled-components';
+import Welcome from '../components/Welcome/Welcome';
 
 const Homepage = () => {
     return <>
-        <StyledTitle>You are on the homepage</StyledTitle>
-        <img src={Image}/>
+        <Welcome/>
     </>
 }
 

@@ -13,9 +13,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('port', process.env.PORT || 3000);
 
-app.use(express.static(path.join(__dirname, '../client'), { maxAge: 31557600000 }));
+
 
 app.use(routes);
+
+app.use(express.static(path.join(__dirname, '../client'), { maxAge: 31557600000 }));
 
 app.use((err: ApplicationError, req: Request, res: Response, next: NextFunction) => {
   if (res.headersSent) {
